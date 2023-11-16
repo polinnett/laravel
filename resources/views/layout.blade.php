@@ -54,14 +54,14 @@
       <li class="nav-item">
         <a class="nav-link @activeLink('contact')" href="/contacts">Contacts</a>
       </li>
-      <!-- @can('create') -->
+      @can('create')
       <li class="nav-item">
         <a class="nav-link @activeLink('article/create')" href="/article/create">Create Article</a>
       </li>
       <li class="nav-item">
         <a class="nav-link @activeLink('comment/all')" href="/comment/all">Comment Moderation</a>
       </li>
-      <!-- @endcan -->
+      @endcan
       @auth
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">

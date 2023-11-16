@@ -13,15 +13,15 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        // $articles = json_decode(file_get_contents(public_path().'/articles.json'));
-        // foreach($articles as $article){
-        //     Article::create([
-        //         'date' => $article->date,
-        //         'title' => $article->name,
-        //         'shortDesc' => $article->shortDesc,
-        //         'text' => $article->desc,
-        //         'user_id' => 1,
-        //     ]);
-        // }
+        $articles = json_decode(file_get_contents(public_path().'/articles.json'));
+        foreach($articles as $article){
+            Article::create([
+                'date' => $article->date,
+                'title' => $article->name,
+                'shortDesc' => $article->shortDesc,
+                'text' => $article->desc,
+                'user_id' => 1,
+            ]);
+        }
     }
 }
