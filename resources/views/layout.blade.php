@@ -65,12 +65,12 @@
       @auth
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          <!-- New comment {{auth()->user()->unreadNotifications->count()}} -->
+          New comment {{auth()->user()->unreadNotifications->count()}}
         </a>
         <div class="dropdown-menu">
-          <!-- @foreach(auth()->user()->unreadNotifications as $notification) -->
+          @foreach(auth()->user()->unreadNotifications as $notification)
             <a class="dropdown-item" href="/article/{{$notification->data['article']['id']}}?notify={{$notification->id}}">For Article: {{$notification->data['article']['title']}}</a>
-          <!-- @endforeach -->
+          @endforeach
         </div>
       </li>
       @endauth
