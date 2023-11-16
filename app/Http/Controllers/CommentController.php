@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
-use App\Jobs\MailJob;
-use App\Notifications\NotifyNewArticle;
+use App\Jobs\VeryLongJob;
+use App\Notifications\CommentNotifications;
 
 
 class CommentController extends Controller
@@ -31,7 +31,7 @@ class CommentController extends Controller
         $comment->accept = 1;
         $res = $comment->save();
         if ($res) {
-            Notification::send($users, new NotifyNewArticle($article));
+            Notification::send($users, new CommentNotifications($article));
             $keys = DB::table('cache')->whereRaw('`key` GLOB :key', ['key'=>'commentAll:article*[0-9]/*[0-9]'])->get();
             foreach($keys as $key){
                 Cache::forget($key->key);
@@ -65,7 +65,7 @@ class CommentController extends Controller
         $comment->user_id = auth()->id();
         $res = $comment->save();
         if ($res) {
-            MailJob::dispatch($comment, $article->title);
+            VeryLongJob::dispatch($comment, $article->title);
             $keys = DB::table('cache')->whereRaw('`key` GLOB :key', ['key'=>'commentAll:article*[0-9]/*[0-9]'])->get();
             foreach($keys as $key){
                 Cache::forget($key->key);
