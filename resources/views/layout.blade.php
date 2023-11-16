@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News</title>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -93,6 +94,7 @@
   @yield('content')    
 </div>
 </main>
+<script src="{{ mix('js/app.js') }}"></script>
 <footer>
   <div class="footer__container">
     <p>Хафизова Полина Дмитриевна</p>

@@ -31,7 +31,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 // article
 //посредник, который проверяет авторизацию по наличию токенов в сессии
 Route::resource('article', ArticleController::class)->middleware('auth:sanctum');
-Route::get('article/{article}', [ArticleController::class, 'show'])->middleware('path', 'auth:sanctum')->name('article.show');
+//Route::get('article/{article}', [ArticleController::class, 'show'])->middleware('path', 'auth:sanctum')->name('article.show');
 
 
 Route::get('/contacts', function () {
