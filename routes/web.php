@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 
 
 
@@ -18,6 +19,18 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
+//comment
+
+Route::prefix('/comment')->group(function(){
+    Route::get('/all', [CommentController::class, 'index'])->middleware('path');
+    Route::post('', [CommentController::class, 'store']);
+    Route::get('/edit/{id}', [CommentController::class, 'edit']);
+    Route::post('/update/{id}', [CommentController::class, 'update']);
+    Route::get('/delete/{id}', [CommentController::class, 'delete']);
+    Route::get('/accept/{id}', [CommentController::class, 'accept']);
+    Route::get('/reject/{id}', [CommentController::class, 'reject']);
+});
+
 Route::get('/', [MainController::class, 'index']);
 Route::get('/galery/{img}', [MainController::class, 'galery']);
 
@@ -28,15 +41,18 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
+Route::get('/', [MainController::class, 'index']);
+Route::get('/galery/{img}', [MainController::class, 'galery']);
+
 // article
 //посредник, который проверяет авторизацию по наличию токенов в сессии
 Route::resource('article', ArticleController::class)->middleware('auth:sanctum');
-//Route::get('article/{article}', [ArticleController::class, 'show'])->middleware('path', 'auth:sanctum')->name('article.show');
+Route::get('article/{article}', [ArticleController::class, 'show'])->middleware('path', 'auth:sanctum')->name('article.show');
 
 
-Route::get('/contacts', function () {
-    return view('main/contacts');
-});
+// Route::get('/contacts', function () {
+//     return view('main/contacts');
+// });
 
 Route::get('/contacts', function(){
     $data = [

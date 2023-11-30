@@ -1,38 +1,51 @@
-// import { defineConfig } from 'vite';
-// import laravel from 'laravel-vite-plugin';
-
-// export default defineConfig({
-//     plugins: [
-//         laravel({
-//             input: ['resources/css/app.css', 'resources/js/app.js'],
-//             refresh: true,
-//         }),
-//     ],
-// });
-
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
     plugins: [
-        vue(),
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js',],
+            input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
         }),
     ],
-}); 
+});
 
 import { createApp } from 'vue/dist/vue.esm-bundler';
-import App from './components/App.vue';
+import App from '/my_project/resources/js/components/App.vue';  
+// resources/js/components/App.vue
 
 const app = createApp({
-    components: {
-        'App' : App,
-    }
+components: {
+    'App' : App,
+}
 });
 
 app.mount('#app');
+
+
+// import { defineConfig } from 'vite';
+// import laravel from 'laravel-vite-plugin';
+// import vue from '@vitejs/plugin-vue'
+
+// export default defineConfig({
+//     plugins: [
+//         vue(),
+//         laravel({
+//             input: ['resources/css/app.css', 'resources/js/app.js',],
+//             refresh: true,
+//         }),
+//     ],
+// }); 
+
+// import { createApp } from 'vue/dist/vue.esm-bundler';
+// import App from './components/App.vue';
+
+// const app = createApp({
+//     components: {
+//         'App' : App,
+//     }
+// });
+
+// app.mount('#app');
 
 
