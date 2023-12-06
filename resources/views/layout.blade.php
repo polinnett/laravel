@@ -55,14 +55,14 @@
       <li class="nav-item">
         <a class="nav-link @activeLink('contact')" href="/contacts">Contacts</a>
       </li>
-      @can('create')
+      
       <li class="nav-item">
         <a class="nav-link @activeLink('article/create')" href="/article/create">Create Article</a>
       </li>
       <li class="nav-item">
         <a class="nav-link @activeLink('comment/all')" href="/comment/all">Comment Moderation</a>
       </li>
-      @endcan
+      
       @auth
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -94,7 +94,6 @@
   @yield('content')    
 </div>
 </main>
-<script src="{{ mix('js/app.js') }}"></script>
 <footer>
   <div class="footer__container">
     <p>Хафизова Полина Дмитриевна</p>

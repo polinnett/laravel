@@ -33,7 +33,7 @@ class EventNewArticle implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('test');
+        return new Channel('my-channel');
     }
 
     public function broadcastWith(){
