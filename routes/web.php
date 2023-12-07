@@ -22,7 +22,7 @@ use App\Http\Controllers\CommentController;
 //comment
 
 Route::prefix('/comment')->group(function(){
-    Route::get('/all', [CommentController::class, 'index'])->middleware('path');
+    Route::get('/all', [CommentController::class, 'index']);
     Route::post('', [CommentController::class, 'store']);
     Route::get('/edit/{id}', [CommentController::class, 'edit']);
     Route::post('/update/{id}', [CommentController::class, 'update']);

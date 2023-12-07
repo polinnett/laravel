@@ -50,7 +50,7 @@ class StatArticle extends Command
         // Log::alert(Carbon::now());
 
         Path::whereNotNull('id')->delete();        
-        Mail::to('moosbeere_O@mail.ru')->send(new statMail($articleCount, $commentCount));
+        Mail::to('polina.hafizova80@mail.ru')->send(new statMail($articleCount, $commentCount));
         return 0;
     }
 }
